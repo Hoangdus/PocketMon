@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PokemonEntity" representedClassName="PokemonEntity" syncable="YES">
+        <attribute name="gifURL" optional="YES" attributeType="String"/>
+        <attribute name="height" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="weight" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="sprites" maxCount="1" deletionRule="Nullify" destinationEntity="SpritesEntity"/>
+        <relationship name="stats" toMany="YES" deletionRule="Nullify" destinationEntity="StatEntity"/>
+        <relationship name="types" toMany="YES" deletionRule="Nullify" destinationEntity="TypeEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="SpritesEntity" representedClassName="SpritesEntity" syncable="YES">
+        <attribute name="back_default" optional="YES" attributeType="String"/>
+        <attribute name="back_shiny" optional="YES" attributeType="String"/>
+        <attribute name="front_default" attributeType="String"/>
+        <attribute name="front_shiny" attributeType="String"/>
+    </entity>
+    <entity name="StatEntity" representedClassName="StatEntity" syncable="YES">
+        <attribute name="base_stat" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="stat" maxCount="1" deletionRule="Nullify" destinationEntity="StatInfoEntity"/>
+    </entity>
+    <entity name="StatInfoEntity" representedClassName="StatInfoEntity" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+    </entity>
+    <entity name="TypeEntity" representedClassName="TypeEntity" syncable="YES">
+        <attribute name="slot" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="type" maxCount="1" deletionRule="Nullify" destinationEntity="TypeInfoEntity"/>
+    </entity>
+    <entity name="TypeInfoEntity" representedClassName="TypeInfoEntity" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+    </entity>
+</model>
